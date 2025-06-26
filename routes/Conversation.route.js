@@ -3,8 +3,9 @@ import { getConversationOfParticularRoute, getConversationList,getOneParticularC
 
 const router = express.Router()
 
-router.get('/get/:id', getConversationOfParticularRoute)
+
 router.get('/conversationlist', getConversationList)
+router.get('/get/:id', getConversationOfParticularRoute)
 router.get('/getconversation/:id',getOneParticularCOnversation)
 
 export default router;
