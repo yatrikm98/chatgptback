@@ -7,12 +7,26 @@ import cors from 'cors';
 
 dotenv.config()
 
+
+console.log('Attempting to connect to MongoDB...');
+console.log('MONGO env var on Vercel:', process.env.MONGO ? 'Found' : 'NOT FOUND or is empty');
+
+// Hide sensitive parts of the string if it exists, for security
+if (process.env.MONGO) {
+    console.log('Connection String Preview:', process.env.MONGO.substring(0, 20) + '...');
+}
+
+
 mongoose.connect(process.env.MONGO).then(() => {
     console.log('Connected to MongoDb')
-}).catch((err) => console.log(err))
+}).catch((err) => {
+    console.error('ERROR connecting to MongoDb:', err); // Use console.error for errors
+});
+
 
 const app = express()
 app.use(express.json())
+
 app.get('/', (req, res) => {
     res.send('API is running.')
 })
@@ -20,7 +34,7 @@ app.get('/', (req, res) => {
 
 app.use(cors());
 
-app.get('/',(req,res)=>{
+app.get('/', (req, res) => {
     res.send("Api is running")
 })
 
