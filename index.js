@@ -16,7 +16,13 @@ app.use(express.json())
 app.get('/', (req, res) => {
     res.send('API is running.')
 })
+
+
 app.use(cors());
+
+app.get('/',(req,res)=>{
+    res.send("Api is running")
+})
 
 app.use('/create', messageRouter)
 app.use('/conversation', conversationRouter)
