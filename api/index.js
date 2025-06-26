@@ -1,8 +1,8 @@
 import express from 'express'
 import mongoose from 'mongoose'
 import dotenv from 'dotenv'
-import messageRouter from './routes/Message.route.js'
-import conversationRouter from './routes/Conversation.route.js'
+import messageRouter from '../routes/Message.route.js'
+import conversationRouter from '../routes/Conversation.route.js'
 import cors from 'cors';
 
 dotenv.config()
